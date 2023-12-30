@@ -9,10 +9,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
 // Add services to the container.
 
-builder.Services.AddGrpcClient<WeatherService.WeatherServiceClient>("http://weather-api").ConfigurePrimaryHttpMessageHandler(
-() => new GrpcWebHandler(new HttpClientHandler())); 
+
 //builder.Services.AddGrpcServiceReference<WeatherService.WeatherServiceClient>("http://localhost:5150");
 builder.Services.AddControllers();
+builder.Services.AddGrpcClient<WeatherService.WeatherServiceClient>(options =>
+{
+    options.Address = new Uri("http://weather-api");
+}).ConfigurePrimaryHttpMessageHandler(
+() => new GrpcWebHandler(new HttpClientHandler()));
 builder.Services.AddScoped<IWeatherService, WeatherServiceGrpc>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

@@ -9,8 +9,8 @@ builder.AddServiceDefaults();
 builder.Services.AddGrpc();
 
 var app = builder.Build();
-
-app.MapGrpcService<WeatherApp.GrpcService.Services.WeatherService>();
+app.UseGrpcWeb();
+app.MapGrpcService<WeatherApp.GrpcService.Services.WeatherService>().EnableGrpcWeb();
 
 
 app.MapDefaultEndpoints();
