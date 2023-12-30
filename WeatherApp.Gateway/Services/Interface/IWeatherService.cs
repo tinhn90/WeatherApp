@@ -1,4 +1,5 @@
-﻿using WeatherApi.Proto;
+﻿
+using WeatherApi.Proto;
 
 namespace WeatherApp.Gateway.Services.Interface
 {

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option csharp_namespace = "WeatherApi.Proto";
 
-package weather;
+package weatherforcast;
 
 // The greeting service definition.
 service WeatherService {

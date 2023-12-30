@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WeatherApp.API\WeatherApp.Gateway.csproj" />
+    <ProjectReference Include="..\WeatherApp.Gateway\WeatherApp.Gateway.csproj" />
     <ProjectReference Include="..\WeatherApp.GrpcService\WeatherApp.GrpcService.csproj" />
     <ProjectReference Include="..\WeatherApp.Web\WeatherApp.Web.csproj" />
   </ItemGroup>

@@ -1,3 +1,4 @@
+using Grpc.Net.Client.Web;
 using WeatherApi.Proto;
 using WeatherApp.Gateway.Services;
 using WeatherApp.Gateway.Services.Interface;
@@ -7,8 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 // Add services to the container.
-builder.Services.AddHttpForwarderWithServiceDiscovery();
-builder.Services.AddGrpcServiceReference<WeatherService.WeatherServiceClient>("http://weatherapi");
+
+builder.Services.AddGrpcClient<WeatherService.WeatherServiceClient>("http://weather-api").ConfigurePrimaryHttpMessageHandler(
+() => new GrpcWebHandler(new HttpClientHandler())); 
 //builder.Services.AddGrpcServiceReference<WeatherService.WeatherServiceClient>("http://localhost:5150");
 builder.Services.AddControllers();
 builder.Services.AddScoped<IWeatherService, WeatherServiceGrpc>();
