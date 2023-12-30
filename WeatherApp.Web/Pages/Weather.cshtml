@@ -20,7 +20,7 @@
             @foreach (var forecast in Model.WeatherForecast)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.Date</td>
                     <td>@forecast.TemperatureC</td>
                     <td>@forecast.TemperatureF</td>
                     <td>@forecast.Summary</td>
@@ -29,4 +29,4 @@
         </tbody>
     </table>
 }
-```
+
