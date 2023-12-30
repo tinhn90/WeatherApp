@@ -8,6 +8,7 @@ builder.AddServiceDefaults();
 
 builder.Services.AddGrpc();
 
+builder.AddRedisDistributedCache("rediscache");
 var app = builder.Build();
 app.UseGrpcWeb();
 app.MapGrpcService<WeatherApp.GrpcService.Services.WeatherService>().EnableGrpcWeb();
