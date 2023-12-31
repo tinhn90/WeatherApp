@@ -13,7 +13,7 @@ namespace WeatherApp.Gateway.Controllers;
 public class WeatherForecastController : ControllerBase
 {
     private IWeatherService _weatherService;
-    private IDistributedCache cache;
+    private IDistributedCache _cache;
 
     private static readonly string[] Summaries = new[]
     {
@@ -22,10 +22,11 @@ public class WeatherForecastController : ControllerBase
 
     private readonly ILogger<WeatherForecastController> _logger;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger, IWeatherService weatherService)
+    public WeatherForecastController(ILogger<WeatherForecastController> logger, IWeatherService weatherService, IDistributedCache distributedCache)
     {
         _logger = logger;
         _weatherService = weatherService;
+        _cache = distributedCache;
     }
 
     [HttpGet]
@@ -42,12 +43,12 @@ public class WeatherForecastController : ControllerBase
     {
         _logger.LogInformation($"Get weather {DateTime.UtcNow.ToString()}");
 
-        var cacheWeather = await cache.GetAsync("weather");
-        if (cache == null)
+        var cacheWeather = await _cache.GetAsync("weather");
+        if (cacheWeather == null)
         {
             var data = await _weatherService.GetWeatherForecastAsync();
 
-            await cache.SetAsync("weather", Encoding.UTF8.GetBytes(JsonSerializer.Serialize(data)),new DistributedCacheEntryOptions() { AbsoluteExpiration = DateTime.Now.AddSeconds(10)});
+            await _cache.SetAsync("weather", Encoding.UTF8.GetBytes(JsonSerializer.Serialize(data)),new DistributedCacheEntryOptions() { AbsoluteExpiration = DateTime.Now.AddSeconds(10)});
             return data;
         }
 

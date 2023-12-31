@@ -13,4 +13,8 @@ public  class WeatherHttpClient
     {
         return await _httpClient.GetFromJsonAsync<List<WeatherDto>>("WeatherForecast/Get") ?? [];
     }
+    public async Task<List<WeatherDto>> GetCacheWeatherForecastAsync()
+    {
+        return await _httpClient.GetFromJsonAsync<List<WeatherDto>>("WeatherForecast/GetCache") ?? [];
+    }
 }
