@@ -29,7 +29,7 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet]
-    [Route("GetWeatherForecast")]
+    [Route("Get")]
     public async Task<List<WeatherForecast>> GetAsync()
     {
         _logger.LogInformation($"Get weather {DateTime.UtcNow.ToString()}");
@@ -37,7 +37,7 @@ public class WeatherForecastController : ControllerBase
         return await _weatherService.GetWeatherForecastAsync();
     }
     [HttpGet]
-    [Route("GetCacheWeatherForecast")]
+    [Route("GetCache")]
     public async Task<List<WeatherForecast>> GetCacheAsync()
     {
         _logger.LogInformation($"Get weather {DateTime.UtcNow.ToString()}");

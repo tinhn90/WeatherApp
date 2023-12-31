@@ -11,6 +11,6 @@ public  class WeatherHttpClient
     //get the weather data from the api
     public async Task<List<WeatherDto>> GetWeatherForecastAsync()
     {
-        return await _httpClient.GetFromJsonAsync<List<WeatherDto>>("weatherforecast") ?? [];
+        return await _httpClient.GetFromJsonAsync<List<WeatherDto>>("WeatherForecast/Get") ?? [];
     }
 }
