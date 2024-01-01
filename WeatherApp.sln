@@ -12,6 +12,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherApp.GrpcService", "W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherApp.Gateway", "WeatherApp.Gateway\WeatherApp.Gateway.csproj", "{7CCB98D2-6799-4D41-A80D-754C2A8C3E99}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Item", "Solution Item", "{7B854084-2ADA-4FEF-832C-4F6FF4DDD8EF}"
+	ProjectSection(SolutionItems) = preProject
+		build-containers.cmd = build-containers.cmd
+		deploy.cmd = deploy.cmd
+		next-steps.md = next-steps.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

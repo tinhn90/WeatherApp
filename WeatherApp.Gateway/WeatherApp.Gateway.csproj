@@ -5,10 +5,13 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<InvariantGlobalization>true</InvariantGlobalization>
+		<ContainerRegistry>localhost:5001</ContainerRegistry>
+		<ContainerRepository>gateway</ContainerRepository>
+		<ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:8.0</ContainerBaseImage>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="Protos\weather.proto" />
+		<None Remove="Protos\weather.proto" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -25,7 +28,7 @@
 		<ProjectReference Include="..\WeatherApp.ServiceDefaults\WeatherApp.ServiceDefaults.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Protobuf Include="Protos\weather.proto" GrpcServices="Client" />
+		<Protobuf Include="Protos\weather.proto" GrpcServices="Client" />
 	</ItemGroup>
 
 </Project>
