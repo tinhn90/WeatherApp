@@ -1,0 +1,9 @@
+resources:
+- cache
+- weather-api
+- gateway
+- web
+
+generatorOptions:
+  disableNameSuffixHash: true
+
