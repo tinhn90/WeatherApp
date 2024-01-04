@@ -1,8 +1,5 @@
 resources:
-- redisCache
-- weather-api
-- gateway
-- web
+- redis.yml
 
 generatorOptions:
   disableNameSuffixHash: true
