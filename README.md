@@ -13,7 +13,7 @@ azd up
 # Deploy to k9s
 ## Install k9s
 
-> widget install k9s
+> winget install k9s
 
 ## Install aspirate 
 >dotnet tool install -g aspirate --prerelease
@@ -25,10 +25,21 @@ cd WeatherApp.AppHost
 
 aspirate init
 
+```
+### Generate Kubernetes yaml
+```
 aspirate generate
+```
 
+> with optional (--skip-build)
+```
 aspirate apply
 ```
+### Generate docker compose file
+```
+aspirate generate --output-format compose
+```
+
 ## Run k9s in terminal
 ``` sh
 k9s

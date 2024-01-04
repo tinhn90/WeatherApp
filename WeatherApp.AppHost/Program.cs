@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Hosting;
 
 var builder = DistributedApplication.CreateBuilder(args);
-var redis = builder.AddRedisContainer("cache");
+var redis = builder.AddRedis("redisCache","localhost:6349");
 var weatherApi = builder.AddProject<Projects.WeatherApp_GrpcService>("weather-api") .WithReference(redis);
 var gateway = builder.AddProject<Projects.WeatherApp_Gateway>("gateway")
                        .WithReference(weatherApi)
