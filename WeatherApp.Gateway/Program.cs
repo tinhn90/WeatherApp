@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 // Add services to the container.
-builder.AddRedisDistributedCache("cache");
+builder.AddRedisDistributedCache("redisCache");
 
 //builder.Services.AddGrpcServiceReference<WeatherService.WeatherServiceClient>("http://localhost:5150");
 builder.Services.AddControllers();
